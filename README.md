@@ -66,10 +66,3 @@ Project Link: [https://github.com/DevinWhitten/sftp](https://github.com/DevinWhi
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
-<!-- ACKNOWLEDGMENTS -->
-<!-- ## Acknowledgments -->
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
