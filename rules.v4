@@ -1,0 +1,24 @@
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+
+# Accept established connections
+-A INPUT -i eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+# Enable HTTP/HTTPS
+-A INPUT -i eth0 -p tcp -m tcp --dport 80 -j ACCEPT 
+-A INPUT -i eth0 -p tcp -m tcp --dport 443 -j ACCEPT 
+
+# Allow 4 connections in 300 seconds, then ban the IP for 300 seconds
+-A INPUT -p tcp -m tcp --dport 22 -m state --state NEW -m recent --set --name DEFAULT --rsource 
+-A INPUT -p tcp -m tcp --dport 22 -m state --state NEW -m recent --update --seconds 300 --hitcount 4 --name DEFAULT --rsource -j DROP 
+-A INPUT -i eth0 -p tcp -m tcp --dport 22 -j ACCEPT 
+
+# Accept ping (ICMP)
+-A INPUT -i eth0 -p icmp -j ACCEPT
+
+# Drop all other connections
+-A INPUT -i eth0 -j DROP
+
+COMMIT
