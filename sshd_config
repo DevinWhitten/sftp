@@ -1,0 +1,22 @@
+ChallengeResponseAuthentication no
+UsePAM no
+PrintMotd no
+X11Forwarding no
+AllowTcpForwarding no
+AllowAgentForwarding no
+PermitTunnel no
+LogLevel Verbose
+Subsystem sftp internal-sftp
+PubkeyAuthentication yes
+PasswordAuthentication yes
+ClientAliveInterval 600
+ClientAliveCountMax 0
+LoginGraceTime 30
+MaxAuthTries=3
+Match Group sftp
+    ChrootDirectory %h
+    X11Forwarding no
+    AllowTcpForwarding no
+    AllowAgentForwarding no
+    PermitTunnel no
+    ForceCommand internal-sftp
