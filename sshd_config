@@ -14,7 +14,7 @@ ClientAliveCountMax 0
 LoginGraceTime 30
 MaxAuthTries=3
 Match Group sftp
-    ChrootDirectory %h
+    ChrootDirectory /home/master/uploads
     X11Forwarding no
     AllowTcpForwarding no
     AllowAgentForwarding no

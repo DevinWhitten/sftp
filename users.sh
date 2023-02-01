@@ -16,4 +16,10 @@ echo "$SSH_MASTER_USER ALL=NOPASSWD:/usr/sbin/deluser" >> /etc/sudoers
 echo "$SSH_MASTER_USER ALL=NOPASSWD:/usr/sbin/chpasswd" >> /etc/sudoers
 addgroup sftp
 
+$ sudo mkdir /uploads
+$ sudo useradd -d /uploads -G sftp main -s /usr/sbin/nologin
+$ echo "inanzzz:inanzzz" | sudo chpasswd
+$ sudo chown inanzzz:sftp -R /uploads
+
+
 exec "$@"
